@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quickstart</title>
+    <script src="http://autobahn.s3.amazonaws.com/js/autobahn.min.js"></script>
+
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    var wsuri = 'ws://'+window.location.host + '/wamp';
+
+    var connection = ab.connect(wsuri, function(session) {
+
+        console.log("connection opened", ab.version());
+        //stuff
+        session.subscribe('echo', function(topic, event) {
+
+            console.log("SUBSCRIBED", topic, event);
+        })
+    });
+
+</script>
